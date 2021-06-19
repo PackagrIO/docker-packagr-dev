@@ -20,7 +20,7 @@ ENV PATH="/go/src/github.com/packagrio/packagr:/go/bin:${PATH}" \
 	SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
 
 # Install build tooling.
-RUN echo "go version: \
+RUN echo "go version:" \
     && go version \
     && apt-get update \
 	&& apt-get install -y gcc git build-essential binutils curl apt-transport-https ca-certificates pkg-config --no-install-recommends \
