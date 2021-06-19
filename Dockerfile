@@ -23,10 +23,15 @@ ENV PATH="/go/src/github.com/packagrio/packagr:/go/bin:${PATH}" \
 RUN echo "go version:" \
     && go version \
     && apt-get update \
-	&& apt-get install -y gcc git build-essential binutils curl apt-transport-https ca-certificates pkg-config --no-install-recommends \
+	&& apt-get install -y gcc build-essential software-properties-common binutils curl apt-transport-https ca-certificates pkg-config --no-install-recommends \
+	&& add-apt-repository ppa:git-core/ppa \
+	&& apt-get update \
+	&& apt-get install -y git \
 	&& rm -rf /usr/share/doc && rm -rf /usr/share/man \
 	&& rm -rf /var/lib/apt/lists/* \
     && apt-get clean
+
+
 
 
 ENV PATH="/go/bin:/usr/local/go/bin:${PATH}" \
